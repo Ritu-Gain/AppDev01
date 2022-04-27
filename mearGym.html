@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mearGym.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>MEAR Fitness Studio</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-image: url('regBg.jpg');
+        background-repeat: no-repeat;
+
+        background-size: 1700px 1000px;
+        color: aliceblue;
+        font-family: 'Baloo Bhaijaan 2', cursive;
+    }
+
+    .left {
+        /* border: 2px solid red; */
+        display: inline-block;
+        position: absolute;
+        left: 34px;
+        top: 20px;
+        text-align: center;
+
+
+    }
+
+    .mid {
+        /* border: 2px solid rgb(36, 161, 109); */
+        display: block;
+        width: 43%;
+        margin: 20px auto;
+
+
+    }
+
+    .right {
+        display: inline-block;
+        position: absolute;
+        right: 34px;
+        top: 20px;
+        /* border: 2px solid rgb(226, 245, 59); */
+
+    }
+
+    .navbar {
+        display: inline-block;
+
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 20px;
+
+    }
+
+    .navbar li a {
+        color: rgb(239, 245, 248);
+        text-decoration: none;
+        padding: 34px 23px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: underline;
+        color: grey;
+
+    }
+
+    .left img {
+        width: 102px;
+        /* filter: invert(100%); */
+    }
+
+    .left div {
+        color: rgb(231, 218, 218);
+        font-weight: bold;
+    }
+
+    .btn {
+        margin: auto auto;
+        background-color: black;
+        color: aliceblue;
+        padding: 2px 83px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        font-family: 'Baloo Bhaijaan 2', cursive;
+    }
+
+    .btn:hover {
+        background-color: rgb(95, 87, 87);
+    }
+
+    .container {
+        border: 2px solid rgb(237, 241, 237);
+        margin: 76px 420px;
+        padding: 6px 22px;
+        width: 500px;
+        border-radius: 2px;
+        font-size: small;
+    }
+
+    .form-group input {
+        text-align: center;
+        display: block;
+        width: 340px;
+        padding: 6px;
+        border: 2px solid black;
+        margin: 11px auto;
+        border-radius: 12px;
+        font-family: 'Baloo Bhaijaan 2', cursive;
+
+    }
+
+    .form-group input:hover {
+        background-color: burlywood;
+    }
+
+    .container button {
+        display: block;
+        width: 71%;
+        margin: auto;
+        padding: 6px;
+
+    }
+
+    .container h1 {
+        text-align: center;
+    }
+
+    /* .form-group */
+    .but {
+        margin: auto auto;
+        background-color: black;
+        color: aliceblue;
+        padding: 2px 83px;
+        border: 2px solid grey;
+        border-radius: 17px;
+        font-size: 20px;
+        cursor: pointer;
+        font-family: 'Baloo Bhaijaan 2', cursive;
+       
+
+    }
+
+    .but:hover {
+        background-color: rgb(95, 87, 87);
+
+    }
+
+    .formerror {
+        margin-left: 320px;
+        color: red;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <!-- left box for logo -->
+        <div class="left">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMHEhUQEQ8SEREREhEWEhYQERYYFRgYFhEWFhUTGxUYKCgiGBwlGxgVIzEiJSkrOi4uFyI2ODMtNygtLi4BCgoKDg0OGxAQGy0mICYxLTcvMC8wLTI1Ly0tLS0tKy4tLy0tKy0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0rLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcEBQgDAgH/xABEEAACAQMBBQQGBwQHCQAAAAAAAQIDBBEFBhIhMUEHUWFxEyIygZGhFEJDUnKCkiM0sfAVJGN0k7KzFkRTc4OiwcLD/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAECBAMF/8QAIREBAAICAgMAAwEAAAAAAAAAAAECAxEhMQQSQTJRYVL/2gAMAwEAAhEDEQA/ALxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFbVu1SOk3da0vLaUVSrThGpQecxzmEpU5Ya9VxfBvnyJloe09pry/q1zTqPGXDO7UXnTliS+BeaWjmYUres8RLbgAouAAAAAAAAAAAAAAAAAAAAAAAAAwNW1q30aO/cXFOium/JJvwjHnJ+CRX+t9sNGm9yyt53E28RlU/ZwbfBYj7UuPRqJeuO1uoUtete5WeD5p5wt7G9hZxyzjjg+ii4AAAAAoTts0v6HfquliN1SjLPfOn6kl+lU/iV/F7rTTw08prmn3p9DpXtA2WW1Vq6SajWpvfoSfJSSxut/dkuD7uD6HOF7aVLCpKjVhKnUpvE4yWGn/PXqnlHoYLxauv087yKTW2/wBpRoXaRqGj4j6f6RTX1LlOfDwnwn835FiaF2wWt5iN1Tnay+8v2lP4xW8v0+8owFrYaW+K0z3r9dZadqVHVIekoVqdaH3qc1JeTxyfgZRyVZ3dSwn6SjVnSmvrU5uMvLMSdaF2t3un4jXULuC+96lT9cVh++L8zNbxrR+LTTyqz2vsEJ0LtRsNVxGdR2s30uFux91RZj8WvImdKoqqUoyUovinF5T8U1zOFqzXuGitot0+wAVWAAAAAAAAAfjeCK692iWGiZjK4Vaos/s7f9pLK6OS9WL8G0TFZnpE2iO0rPK6uYWkXOpONOEecqklGK82+CKU13tiubrMbSjC3jxxOeKlTzSfqx8mpEA1TVa+ry37ivUrS6ekk2l5LlH3JGivjWnvhnv5NY65XjrvaxY6dmNFzu5r/hLFPPjUlwa8YqRXWu9ql/qmY05Rtab6UVmePGpLj74qJBgaK4KVZr+Rez0r1pXMnOc5TnLnKcnKT85PiyQdnWl/0tqNvTxmMKiqz8I0vX4+Dkox/MR2MXNpJNttJJLLbbwkkubyX52UbGy2cpSr144uq6WY9adPmqf4m+L8kunGc14pUw0m9tp8ADzXpAAAAAAaLabZK02mSVxSzOKxCpB7tSPgpLmvB5Xgb0hvadotfUbb01pVrU7i3zJKjVnB1IfXhiDWXwyvFY+sWp+Xelb9dbQzV+xepDLtLuM10hcRcX/iQyn+lEK1fYfUNIy6lnUcV9aivSR8/Uy0vNI8bfbHUKHs6hcv8VaU/wDPkzaXaLqlLlfTf4qdGX8Ym+Iyx9iXn2nFPyYRb/xzBJb/AG1uNU/eaVpcPGN6raw315ThuyXuZHq9RVXlQjTX3YOWF+tt/M6xM/XK0R8l5my0fXrnRHvW1zUo96jL1H4um8xl70a0EzET2iJmOlqaF2y1aOI3ltGqvv0Huz/RL1ZP3xLF0Hbix13CpXMVUf2dX1J57kpe1+Vs5qoUZXEo04LM5yjCC75SajFe9tF26X2OWlOmlc1atWq0t9wkowT6qKxnHi38ORkzY8df42YcmS39WWDQ6FsxHQsKjdXbgvs6tZVIY7kpp7q/Dg3xknXxrgBENudvqGymKe661zJZjSi8JLpKcuO6u7g2/mU/r3aLqGtZTruhTf1LbMPjP238ceB1phtflyyZ604Xtrm1VnoP7xc04S+4nvVH/wBOOZe/BXeu9s3ONla9+Kly/mqcHxXnJeRUL48er4vxfefhpr41Y75Zb+TaeuG61zau817P0i6qTg/s4vdp+W5HCfm8s0oB3iIjpnm0z2BvB9Qe602k/B5w/hhm+07auppeHb21nSkuU1bqdT9dVyl8xMz8TWInuXhpGyl7rOPQWdWcXyk47kPPfniL9zJrpHY1cV8O5uaVFfdpJ1JeTb3Un8SOVe0jVKv+/SX4aVFf+phV9tNQr+1qFx+So4f5MHK0ZZ6mIdazijvcr12W2Bs9mmp06bqVl9rWalNfhSSUOvJZ8SUlZ9j2mXNxCWoXdxcVPSJxt41q1SS3c+vVxJvm1heCb6osww5N+3M7b8evXiNAAKLgAAAAAAAKh7Q+zCVacrrT4p77cqtDKXF8XKnnhx5uPw7ipbmhO0k6dSEqc1zjUi4yXnGXFHXBB+0Dayns+4wuNNlc05r1JyVN0m+sPWy1Jc8NcenJ41Ys9vx1tly4K/lvTnsFgXHaFaz9jZ+xX41CXyVNGputs1W9nSdJgun9STl8XLHyNUWt+mSaV/0ioNtc69Ovyt7Kn/y7G3XzlFs1lSo6jy8fljGK+EcItG1ZiPixOzzabS9nKKlXo1J3cpScp+hjLdSl6kYSb4LCTeOr8EWBZdqem3bUXXnSb5elpTS98llL3s54Bxtgradzt2r5FqxqIh1rZ3dO+gqlKpCrCXsypyUovya4Hucs7O7RXGzdT0ttVccv14PjTn4Sh18+DXRo6G2L2qpbV0PTU1uVItRrU28uEsd/WL5p9fBppZcuGac/GvFmi/H1z3thdSvb66qTeW7msvdCbhBe6MYr3GnNhtD+93P95uP9aRrz0K9Q86/5SAAlUB+xe7x4e9J/JmxttanQ+xtJruqWVu/nu5+ZE7TGvrWgk1vth6HnpelT796xWfipL+Bt7ftAtoe3oGny/BCEf4wkVm1v0vFa/wCkDhFzaik3JvCS4tvuS6ljbD9l9bVJRrXsJULdNP0csxq1PBrnTj3t4fclzUs2F22oavWVC20j0EmszlR9FuQj1lKSUeHRcMsskzZc9o41ppxYKTzvb4o0o0IqEYqMYpKKisJJLCSXRYPsAyNgAAAAAAAAAABi6np1LVacqFenGpSmsSjJcPB+DXNNcjKAFD7YdldxpcnUs1K6oc91Y9NDwcftF4x4+HUr64pStXu1IypyXONSLjJe6XE65POtDeXsqTw8KXLPTjxwaa+TaO+WW/i1mdxw5U0zSa+rPFvb1az/ALOnKSXnJcF72bq42PlpSzf3VCzbWfRJ+muPD9jT4JPvckSHb7bTVaE3b1Kb0+m8qKpc5rvVx9b8m74lcSk5tttttttvi23zbfVmqs2tz0zWilZ12zrutQh6tClOX9pcSW95qnD1Y+TczAMnTtPq6pNUqFKdWo+UacW35vuXi+BJ9T0OjsdFfSnC5v5xThbp5o0U+U6z+0fdDl35XOZtEcfVYrNufiINYJP2ca+9AvqU97FKtKNKsum7NpKX5ZYee5PvI3XrSuJOc5OUpPLb/nh5H5UpunjKaylJeT5Mm0e0alWs+s7hm7Q/vdz/AHm4/wBaZgJZ5GRXnK/qyklmdWpOWFzbnJvC8csx4yxxTw1xTX8SY6J5nb8Mu0rUl6tai5R+9SnuVFx8VKL68HHPiiQaLa2+1jVCc421++FKrjFG4fSFWK9io/vx9rqnLnptd0K40Cfo7mjKm8vdbWYS8YzXCX85wR7RM6ntb1mOY6bK02Zp6xwsr2lOo+VC6XoK3hGOXKFR+Uvga/VtnbvR/wB4ta1JL6zg3D/EjmL+Jq2sk02M201OznGhbud4njFCpF1OGekvagvHOF3FZ9o6THpbiY0hlNele7H1m+SjxfwRM9luza812SdSnK1ofWnWi1NruhTfFvxeF4vkX7pm/OnGdWjCjVlFOcISU1F/d30lvfAyzNbyZ6iGqvi17mWq2c2fobN0VQt4bsecpPjOcus5S6v+HJYRtQDNM77aYjXEAAISAAAAAAAAAAAAAAAA8rm2hdRcKkI1IPnGcVKL80+BpJbEadJ5/o+28lSil+lcCQAmJmOkTET210qVDZ+hUnTo06NKlTnNxpQjBYhFyfCPDocuahfT1OrOvVe9UqzlOb8W+S8FyS6JI6m12zeo21egudahVprznTcV/E5ScXDg001wafBprmmuhr8X7LH5W+IbfZPQ5bRXVO2i92MnvVZfcpx4zn8OC8WjF1y8jf3FWrCKjTlNqlFLCjTj6lKOPCCivcWPo+m/7IaJcXs1u3N9TUKfSUYVPVppdzxKVR+7uKqO9Le1plwvX1rEfX3TqSoyU4vdlGSlFro08p/EkG2ulK0qU7qlHFtf0o16SXKDkk6tH8sn8JLuI6Wlshp62y0WrZcPpFnVlO3bfFbyc4JvopN1Y/PoMlvXVjHX23VVqe7xTaa4pp4afRp9GdM7HX62n0+hVrRjUdSnu1VOKcZThJ05txfDi4t+85nlFwbTTTTaaaw01zTXRnR/ZbZSsNMtoz4SlGdTD7qtSVSP/bJHLytesS7eLv2mGXLYjTpPP9H23kqUUv0rgbew0+jp0dyhRp0YfdpQjBfCODJBim0z22xEQAAhIAAAAAAAAAAAAAAAAAAAAAAAAVztB2X09Tv4XUJRjQqVN+7pPq1mTcfCbwpLhzbXMsYFq3mvStqxbtT/AG86pxtrOLXDerTXdzp0/wD6lRl19quwNbWJu+tpOpUUIxnRfNxiuDpvv5+q+eeHHg6VlFwbTTTTaaaw008NNPkzfgmPTUPP8iJ99yE+7FdU+g3/AKFvEbqlKP54evB/BVF+YgDLP7MOz+tc1KV/cOdClTnGpRjyqVGnlNp+zB+PGS7lxLZpj0naMMT7xpJ9Y7L6eqal9LcoxtZ4qVqS9qdXPrR7lCXByfPOe/KsWK3VhLCXLB+g8615trb0a0iu9AAKrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQbb7s7pbSp1qO7Ru8e1j1KmOSqJdem8uPfnCROQWraazuFbVi0alWGwPZfHTnG5v4xqV08wo5UqdN9HLpOXyXi8NWeAL3m07kpSKxqAAFVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//2Q=="
+                alt="Error Image">
+            <div> 106's App Dev</div>
+
+        </div>
+        <!-- mid box for navbar -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <!-- <li><a href="#">Fitness Calculator</a></li> -->
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </div>
+        <!-- right box for navbar -->
+        <div class="right">
+            <button class="btn"> Call us now</button>
+            <button class="btn"> Email us</button>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Registration form</h1>
+        <form action="/myaction.php" method="post" name="myForm" onsubmit="return validateForm()">
+            <div class="form-group" id="name">
+                <input type="text" name="fname" placeholder="Enter your name"><span class="formerror"></span>
+            </div>
+            <!-- <div class="formerror"><b>*this is an error</b></div> -->
+            <div class="form-group" id="email">
+                <input type="email" name="femail" placeholder="Enter your email"><span class="formerror"></span>
+            </div>
+            <div class="form-group" id="addr">
+                <input type="text" name="faddr" placeholder="Enter your address"><span class="formerror"></span>
+            </div>
+            <div class="form-group" id="phone">
+                <input type="number" name="fphn" placeholder="Enter your Phone No"><span class="formerror"></span>
+            </div>
+            <div class="form-group" id="pass">
+                <input type="password" name="fpass" placeholder="Enter your password"><span class="formerror"></span>
+            </div>
+            <div class="form-group" id="cpass">
+                <input type="password" name="fcpass" placeholder="confirm your Password"><span
+                    class="formerror"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="but"  value="Submit">
+
+            </div>
+           
+            
+        </form>
+    </div>
+
+</body>
+<script>
+    function clearErrors(){
+
+errors = document.getElementsByClassName('formerror');
+for(let item of errors)
+{
+    item.innerHTML = "";
+}
+
+
+}
+    function seterror(id,error){
+        element=document.getElementById(id);
+        element.getElementsByClassName('formerror')[0].innerHTML=error;
+
+    }
+    function validateForm(){
+        var returnval = true;
+        clearErrors();
+        var name = document.forms['myForm']["fname"].value;
+    if (name.length<5){
+        seterror("name", "*Length of name is too short");
+        returnval = false;
+    }
+    if (name.length == 0){
+        seterror("name", "*Length of name cannot be zero!");
+        returnval = false;
+    }
+
+    var email = document.forms['myForm']["femail"].value;
+    if (email.length>15){
+        seterror("email", "*Email length is too long");
+        returnval = false;
+    }
+
+    var phone = document.forms['myForm']["fphone"].value;
+    if (phone.length != 10){
+        seterror("phone", "*Phone number should be of 10 digits!");
+        returnval = false;
+    }
+
+    var password = document.forms['myForm']["fpass"].value;
+    if (password.length < 6){
+
+        // Quiz: create a logic to allow only those passwords which contain atleast one letter, one number and one special character and one uppercase letter
+        seterror("pass", "*Password should be atleast 6 characters long!");
+        returnval = false;
+    }
+
+    var cpassword = document.forms['myForm']["fcpass"].value;
+    if (cpassword != password){
+        seterror("cpass", "*Password and Confirm password should match!");
+        returnval = false;
+    }
+        // console.log(name);
+        return returnval;
+
+    }
+</script>
+
+</html>
